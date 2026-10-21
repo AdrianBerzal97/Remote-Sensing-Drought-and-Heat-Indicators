@@ -8,7 +8,7 @@ The supplied scripts cover areas labelled Salamanca, Avila and Caceres, mainly o
 - **LST:** daily mosaics, weekly 90th percentiles, coverage sensitivity and internal consistency checks.
 - **Water balance:** ERA5-Land precipitation and potential evaporation, rolling 30/60/90-day balances, resumable downloads and arithmetic checks.
 
-See [methodological notes](docs/methodology.md) for scientific and technical limitations.
+See [methodological notes](docs/methodology.md) for scientific and technical limitations and the [English script guide](docs/script_guide.md) for descriptions of all eight original Python scripts.
 
 ## Requirements
 
