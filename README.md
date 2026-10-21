@@ -42,6 +42,40 @@ The daily LST mosaic output has **1,476 records**. The definitive weekly output 
 
 **Source files examined locally:** `01_LST_diario_mosaico.csv`, `01_LST_semanal_definitivo_2015_2025.csv`, `02_LST_semanal_sensibilidad.csv`, `02_resumen_sensibilidad_validado.csv`, `03_incidencias_recalculo.csv`, `03_resumen_sensibilidad(1).csv`, `04_cobertura_anual.csv`, `05_cobertura_mensual.csv`, `06_temperaturas_extremas_diarias.csv`, `07_controles_validacion.csv`, and `08_coincidencia_semanal_NDMI_LST.csv`. No individual observations or private geometries are included here.
 
+## Observed NDMI outputs (2015–2025)
+
+The following aggregated figures are computed from **actual author-provided NDMI CSV outputs**, not synthetic examples. Original CSV files are **not** published here.
+
+![Weekly NDMI availability by study area](docs/ndmi_weekly_availability.svg)
+
+With a **10% minimum coverage threshold**, the weekly NDMI output covers 574 Sunday windows per area:
+
+| Area | Available weeks | Availability | Available weeks with one qualifying day | Missing weeks |
+|---|---:|---:|---:|---:|
+| Ávila | 424 / 574 | 73.9% | 188 | 150 |
+| Cáceres | 465 / 574 | 81.0% | 195 | 109 |
+| Salamanca | 454 / 574 | 79.1% | 235 | 120 |
+| **Total** | **1,343 / 1,722** | **78.0%** | **618** | **379** |
+
+The daily NDMI mosaic file contains **1,476 records**; the definitive weekly file contains **1,722 records**, including weeks with missing NDMI. Weekly NDMI is the **minimum value over a 14-day lookback window**, not a weekly average. In **618** available weeks only one qualifying day contributes; missing weeks are not zeros.
+
+### Sensitivity to minimum coverage
+
+| Area | 5% threshold | 10% threshold | 20% threshold |
+|---|---:|---:|---:|
+| Ávila | 428 / 574 | 424 / 574 | 416 / 574 |
+| Cáceres | 469 / 574 | 465 / 574 | 459 / 574 |
+| Salamanca | 461 / 574 | 454 / 574 | 428 / 574 |
+
+### Recorded quality checks
+
+- The supplied recalculation-incidents file has **zero rows**, and the validation-alerts file has **zero rows**. These checks do not establish independent scientific validation.
+- No duplicate area/date keys were found in the daily NDMI file.
+- No daily NDMI record has `valid_area_m2 > total_area_m2`; the recorded coverage fraction ranges from **0 to 1**.
+- The availability counts at the 10% threshold happen to match the LST series, but this does **not** mean that NDMI and LST values, observations or methods are interchangeable.
+
+**Source files inspected locally:** `01_NDMI_diario_mosaico(1).csv`, `01_NDMI_semanal_definitivo_2015_2025(1).csv`, `02_NDMI_semanal_sensibilidad(1).csv`, `02_resumen_sensibilidad_validado(2).csv`, `03_resumen_sensibilidad(2).csv`, `03_incidencias_recalculo(2).csv`, `04_cobertura_mensual(1).csv`, and `05_alertas_validacion(1).csv`. No individual records or private geometries are included.
+
 ## Data and validation
 
 No raw data, private Earth Engine assets, synthetic results or fabricated figures are included. The uploaded scripts have not been executed against the original data as part of this repository setup. ERA5-Land potential evaporation is **not** FAO-56 ET0; the scripts' internal checks are not independent validation.
