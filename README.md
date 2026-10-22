@@ -17,7 +17,7 @@ Install packages listed in `requirements.txt`. Google Earth Engine scripts requi
 
 ## Observed LST outputs (2015–2025)
 
-The following **aggregated values come from the author's actual CSV outputs** (uploaded October 2026), not from synthetic examples. Original CSVs are **not** published in this repository. These are workflow and arithmetic quality checks, not independent validation of satellite surface temperature.
+The following results summarize processed Landsat 8/9 observations for the study period. Original observation-level datasets are not published in this repository. These are workflow and arithmetic quality checks, not independent validation of satellite surface temperature.
 
 ![Weekly LST availability by study area](docs/lst_weekly_availability.svg)
 
@@ -40,11 +40,10 @@ The daily LST mosaic output has **1,476 records**. The definitive weekly output 
 - **4** flagged daily temperatures above 55 °C passing the 10% coverage threshold, all in Salamanca. The extreme-temperature audit also lists three subzero values in Ávila that **do not** pass that threshold. Flags indicate review, not automatic invalidation.
 - **618** weekly values at 10% coverage derive from **only one qualifying day**; interpret their 90th-percentile label cautiously. **379** weekly windows have no qualifying observations; missing values should not be treated as zero.
 
-**Source files examined locally:** `01_LST_diario_mosaico.csv`, `01_LST_semanal_definitivo_2015_2025.csv`, `02_LST_semanal_sensibilidad.csv`, `02_resumen_sensibilidad_validado.csv`, `03_incidencias_recalculo.csv`, `03_resumen_sensibilidad(1).csv`, `04_cobertura_anual.csv`, `05_cobertura_mensual.csv`, `06_temperaturas_extremas_diarias.csv`, `07_controles_validacion.csv`, and `08_coincidencia_semanal_NDMI_LST.csv`. No individual observations or private geometries are included here.
 
 ## Observed NDMI outputs (2015–2025)
 
-The following aggregated figures are computed from **actual author-provided NDMI CSV outputs**, not synthetic examples. Original CSV files are **not** published here.
+The following results summarize processed Landsat 8/9 NDMI observations. Original observation-level datasets are not published here.
 
 ![Weekly NDMI availability by study area](docs/ndmi_weekly_availability.svg)
 
@@ -74,11 +73,10 @@ The daily NDMI mosaic file contains **1,476 records**; the definitive weekly fil
 - No daily NDMI record has `valid_area_m2 > total_area_m2`; the recorded coverage fraction ranges from **0 to 1**.
 - The availability counts at the 10% threshold happen to match the LST series, but this does **not** mean that NDMI and LST values, observations or methods are interchangeable.
 
-**Source files inspected locally:** `01_NDMI_diario_mosaico(1).csv`, `01_NDMI_semanal_definitivo_2015_2025(1).csv`, `02_NDMI_semanal_sensibilidad(1).csv`, `02_resumen_sensibilidad_validado(2).csv`, `03_resumen_sensibilidad(2).csv`, `03_incidencias_recalculo(2).csv`, `04_cobertura_mensual(1).csv`, and `05_alertas_validacion(1).csv`. No individual records or private geometries are included.
 
 ## Observed climatic water-balance outputs (2014–2025)
 
-The following are **aggregated results from the author's original CSV outputs**, not simulated data. The original CSVs and individual observations are **not published** in this repository.
+The following results summarize processed ERA5-Land precipitation and potential evaporation data. Original observation-level datasets are not published in this repository.
 
 ![Corrections to daily precipitation and potential evaporation](docs/water_balance_corrections.svg)
 
@@ -118,7 +116,6 @@ The counts are **per rolling window**, not distinct correction events. A correct
 - The preliminary controls report **no missing daily P/PET values**. They also report seven negative PET values, while the later correction log documents 62 negative P and seven negative PET corrections. These controls describe **different processing stages** and should not be treated as contradictory without reviewing the preprocessing pipeline.
 - The original and corrected values are preserved in the author's private daily dataset; only aggregated counts and sensitivity measures are shown here.
 
-**Author-provided source files reviewed:** `01_WB_diario_2014_2025.csv`, `01_WB_diario_depurado_2014_2025.csv`, `02_WB_semanal_2015_2025_prevalidacion.csv`, `02_WB_semanal_definitivo_2015_2025.csv`, `03_controles_preliminares.csv`, `03_correcciones_diarias.csv`, `04_sensibilidad_correcciones_semanales.csv`, `05_resumen_validacion.csv`, and `06_incidencias_recalculo.csv`.
 
 ## Data and validation
 
